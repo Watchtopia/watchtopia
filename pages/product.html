@@ -1,0 +1,276 @@
+﻿<!doctype html>
+<html lang="az">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>watchtopia | M?hsul</title>
+  <meta name="description" content="watchtopia m?hsul s?hif?si">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="../assets/css/styles.css" as="style">
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+    as="style">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+
+  <header class="header">
+    <div class="container nav-wrap">
+      <a href="../index.html" class="logo">watch<span>topia</span></a>
+      <div class="lang-switch" aria-label="Language switcher">
+        <button class="lang-btn is-active" data-lang="az">AZ</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="menu-btn" data-nav-i18n="menu" aria-label="Menu" aria-expanded="false">Menyu</button>
+      <div class="nav-search-wrapper"
+        style="position: relative; margin-right: auto; margin-left: 24px; flex: 1; max-width: 320px;">
+        <input type="text" id="global-search-input" placeholder="Search watches..." autocomplete="off"
+          style="width: 100%; border: 1px solid var(--line); border-radius: 999px; padding: 6px 16px; font-size: 0.85rem; background: var(--bg-soft); color: var(--text);">
+        <div id="global-search-results"
+          style="position: absolute; top: calc(100% + 8px); left: 0; right: 0; background: var(--card); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); max-height: 380px; overflow-y: auto; z-index: 50; display: none; padding: 8px; flex-direction: column; gap: 4px;">
+        </div>
+      </div>
+      <nav class="nav" id="main-nav">
+        <div class="nav-item">
+          <a href="#" class="mega-trigger" data-i18n="navCatalog">Kataloq</a>
+          <div class="mega-menu">
+            <div class="mega-col">
+              <h4 data-i18n="megaCollections">Kolleksiyalar</h4>
+              <ul>
+                <li><a href="catalog.html?category=original" data-i18n="megaOriginal">Original Seriya</a></li>
+                <li><a href="catalog.html?category=design" data-i18n="megaDesign">Dizayn Saatlar</a></li>
+                <li><a href="catalog.html?sort=newest" data-i18n="megaNew">Yeni Gələnlər</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <h4 data-i18n="megaBrands">Brendlər</h4>
+              <ul>
+                <li><a href="catalog.html?brand=Curren">Curren</a></li>
+                <li><a href="catalog.html?brand=Naviforce">Naviforce</a></li>
+                <li><a href="catalog.html?brand=CRRJU">CRRJU</a></li>
+                <li><a href="catalog.html?brand=Imperium">Imperium</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <h4 data-i18n="megaCategories">Kateqoriyalar</h4>
+              <ul>
+                <li><a href="catalog.html?type=watch" data-i18n="megaWatches">Saatlar</a></li>
+                <li><a href="catalog.html?type=perfume" data-i18n="megaPerfumes">Parfümlər</a></li>
+                <li><a href="catalog.html?type=accessory" data-i18n="megaAccessories">Aksesuarlar</a></li>
+              </ul>
+            </div>
+            <div class="mega-promo">
+              <div class="promo-item">
+                <span class="promo-icon">🎁</span>
+                <div class="promo-info">
+                  <h5 data-i18n="megaPromo1Title">Endirim Kodu</h5>
+                  <p data-i18n="megaPromo1Text">COMEBACK10 ilə 10% endirim</p>
+                </div>
+              </div>
+              <div class="promo-item">
+                <span class="promo-icon">🚚</span>
+                <div class="promo-info">
+                  <h5 data-i18n="megaPromo2Title">Pulsuz Çatdırılma</h5>
+                  <p data-i18n="megaPromo2Text">100 AZN-dən yuxarı sifarişlərdə</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="add-product.html" data-i18n="navAddProduct">Məhsul əlavə et</a>
+        <a href="../index.html#about" data-i18n="navAbout">Haqqımızda</a>
+        <a href="../index.html#contact" data-i18n="navContact">Əlaqə</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section container">
+    <article class="product-layout" id="product-view">
+      <div class="product-gallery" id="product-gallery">
+        <div class="media-track" id="product-track">
+          <img class="product-image" id="product-image" src="" alt="Watch image">
+        </div>
+        <button class="media-btn media-btn-prev" id="product-prev" type="button"
+          aria-label="Previous image">&#10094;</button>
+        <button class="media-btn media-btn-next" id="product-next" type="button"
+          aria-label="Next image">&#10095;</button>
+        <div class="product-thumbnails" id="product-thumbnails"
+          style="display: flex; gap: 8px; margin-top: 16px; overflow-x: auto; padding-bottom: 8px;"></div>
+      </div>
+      <div class="product-content">
+        <div class="product-top-row">
+          <p class="eyebrow" id="product-tag">ORIGINAL</p>
+          <button type="button" class="product-like-btn" id="product-like" aria-label="Like">?</button>
+        </div>
+        <h1 id="product-name">Model</h1>
+        <p class="product-price" id="product-price">0 AZN</p>
+        <p id="product-stock"
+          style="margin-top: 8px; color: var(--danger, #ff4d4f); font-weight: 600; font-size: 0.95rem; display: none;">
+        </p>
+        <p id="product-description">Description</p>
+
+        <ul class="product-features" id="product-features"></ul>
+        <div id="product-variant-wrap"></div>
+
+        <div class="hero-actions">
+          <a href="cart.html" class="btn btn-primary" id="product-order">Sifaris et</a>
+          <button type="button" class="btn btn-ghost" id="product-1click-btn"
+            style="background: var(--gold); color: #fff; border-color: transparent;">1-Click Buy</button>
+          <button type="button" class="btn btn-ghost" id="product-add-cart">Add to cart</button>
+          <a href="#" class="btn btn-ghost" id="product-instagram" hidden>View in Instagram</a>
+          <a href="index.html#catalog" class="btn btn-ghost" id="product-back">Kataloqa qay?t</a>
+        </div>
+        <div id="product-share" style="margin-top: 16px; display: flex; gap: 12px; align-items: center;">
+          <span style="font-size: 0.9rem; color: var(--muted);" data-i18n="shareText">Share:</span>
+          <a href="#" id="share-whatsapp" target="_blank" rel="noopener noreferrer"
+            style="color: #25D366; text-decoration: none;" aria-label="Share on WhatsApp">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+              </path>
+            </svg>
+          </a>
+          <a href="#" id="share-telegram" target="_blank" rel="noopener noreferrer"
+            style="color: #0088cc; text-decoration: none;" aria-label="Share on Telegram">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </a>
+          <a href="#" id="share-facebook" target="_blank" rel="noopener noreferrer"
+            style="color: #1877F2; text-decoration: none;" aria-label="Share on Facebook">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <section id="cross-sell-section" style="display: none; margin-top: 60px;">
+      <div class="section-head text-center">
+        <h2 id="cross-sell-title" style="margin-bottom: 24px;">Sizin ucun secilmisler</h2>
+      </div>
+      <div class="cards" id="cross-sell-container"></div>
+    </section>
+
+    <section id="product-comments" style="margin-top: 60px;">
+      <div class="section-head text-center">
+        <h2 id="comments-title" style="margin-bottom: 24px;" data-i18n="commentsTitle">R?yl?r</h2>
+      </div>
+      <div
+        style="max-width: 800px; margin: 0 auto; padding: 20px; background: rgba(255,255,255,0.8); border: 1px solid var(--line); border-radius: 12px;">
+        <div id="comments-list" style="margin-bottom: 24px; display: flex; flex-direction: column; gap: 16px;">
+          <!-- Comments injects here -->
+        </div>
+        <div id="comment-form-wrap" style="display: none; border-top: 1px solid var(--line); padding-top: 16px;">
+          <h3 id="comment-form-title" style="font-size: 1.1rem; margin-bottom: 12px;" data-i18n="commentFormTitle">R?y
+            yaz?n</h3>
+          <textarea id="comment-input"
+            style="width: 100%; min-height: 80px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; margin-bottom: 12px; font-family: inherit; font-size: 1rem;"
+            placeholder="R?yinizi yaz?n..." data-i18n-placeholder="commentPlaceholder"></textarea>
+          <button class="btn btn-primary" id="comment-submit" data-i18n="commentSubmit">Gond?r</button>
+        </div>
+        <div id="comment-login-msg" style="display: none; text-align: center; color: var(--muted); padding-top: 16px;">
+          <a href="login.html" style="color: var(--gold); text-decoration: underline;"
+            data-i18n="commentLoginLink">Sayta daxil olun</a> <span data-i18n="commentLoginText">ki, r?y yaza
+            bil?siniz.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="recent-views-section" style="display: none; margin-top: 60px;">
+      <div class="section-head text-center">
+        <h2 id="recent-views-title" style="margin-bottom: 24px;">Nedanvo prosmotrennie</h2>
+      </div>
+      <div class="cards" id="recent-views-container"></div>
+    </section>
+
+    <div id="modal-1click" class="modal-overlay"
+      style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
+      <div
+        style="background:var(--card); padding:24px; border-radius:12px; max-width:400px; width:90%; position:relative;">
+        <button id="modal-1click-close"
+          style="position:absolute; top:12px; right:12px; background:transparent; border:none; font-size:1.5rem; cursor:pointer; color:var(--text);">&times;</button>
+        <h3 id="modal-1click-title" style="margin-bottom:16px;">Buy in 1-Click</h3>
+        <form id="form-1click" style="display:flex; flex-direction:column; gap:16px;">
+          <input type="text" id="1click-name" placeholder="Your Name" required
+            style="padding:12px; border:1px solid var(--line); border-radius:8px; font-size:1rem; background:var(--bg-soft); color:var(--text);">
+          <input type="tel" id="1click-phone" placeholder="Phone (+994...)" required
+            style="padding:12px; border:1px solid var(--line); border-radius:8px; font-size:1rem; background:var(--bg-soft); color:var(--text);">
+          <button type="submit" class="btn btn-primary" id="1click-submit"
+            style="width:100%; padding:14px; font-size:1.1rem;">Confirm Order</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" style="padding-top: 60px;">
+    <div class="container instagram-feed" style="margin-bottom: 60px;">
+      <h3 style="text-align: center; margin-bottom: 24px; font-family: var(--font-fancy); font-size: 1.5rem;"
+        data-i18n="instagramTitle">@watchtopia.az on Instagram</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+        <a href="#" target="_blank" style="aspect-ratio: 1; overflow: hidden; border-radius: 12px;"><img
+            src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=400&q=80"
+            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></a>
+        <a href="#" target="_blank" style="aspect-ratio: 1; overflow: hidden; border-radius: 12px;"><img
+            src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=400&q=80"
+            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></a>
+        <a href="#" target="_blank" style="aspect-ratio: 1; overflow: hidden; border-radius: 12px;"><img
+            src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=400&q=80"
+            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></a>
+        <a href="#" target="_blank" style="aspect-ratio: 1; overflow: hidden; border-radius: 12px;"><img
+            src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=400&q=80"
+            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></a>
+      </div>
+    </div>
+
+    <div class="container newsletter-section"
+      style="margin-bottom: 60px; text-align: center; padding: 48px 24px; background: var(--bg-soft); border-radius: 16px; border: 1px solid var(--line);">
+      <h3 style="margin-bottom: 12px; font-family: var(--font-fancy); font-size: 1.5rem;" data-i18n="newsletterTitle">
+        Xəbərlərə abunə olun</h3>
+      <p style="color: var(--muted); margin-bottom: 24px; max-width: 500px; margin-inline: auto;"
+        data-i18n="newsletterText">Yeni kolleksiyalar və eksklüziv endirimlər barədə ilk siz xəbərdar olun.</p>
+      <form id="newsletter-form"
+        style="display: flex; gap: 8px; justify-content: center; max-width: 450px; margin: 0 auto; flex-wrap: wrap;">
+        <input type="email" id="newsletter-email" data-i18n-placeholder="newsletterPlaceholder"
+          placeholder="E-mail ünvanınız" required
+          style="flex: 1; min-width: 200px; padding: 14px 20px; border: 1px solid var(--line); border-radius: 99px; font-size: 1rem; background: var(--card); color: var(--text);">
+        <button type="submit" class="btn btn-primary" style="border-radius: 99px; padding: 14px 32px;"
+          data-i18n="newsletterSubmit">Abunə ol</button>
+      </form>
+    </div>
+
+    <div class="container footer-wrap">
+      <p data-i18n="footerRights">© 2026 watchtopia. Butun huquqlar qorunur.</p>
+      <div class="footer-end">
+        <p data-i18n="footerLegal">Yalnız legal və original məhsullar təqdim olunur.</p>
+        <a href="#" data-contact="whatsapp" data-i18n="footerOrder">WhatsApp ilə sifariş</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/core/nav.js"></script>
+  <script src="../assets/js/core/products-store.js"></script>
+  <script src="../assets/js/core/auth.js"></script>
+  <script src="../assets/js/core/auth-ui.js"></script>
+  <script src="../assets/js/pages/product.js"></script>
+</body>
+
+</html>
