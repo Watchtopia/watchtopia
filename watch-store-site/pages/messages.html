@@ -1,0 +1,140 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>watchtopia | Messages</title>
+  <meta name="description" content="watchtopia private messages">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body data-require-auth="true">
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <header class="header">
+    <div class="container nav-wrap">
+      <a href="../index.html" class="logo">watch<span>topia</span></a>
+      <div class="lang-switch" aria-label="Language switcher">
+        <button class="lang-btn is-active" data-lang="az">AZ</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="menu-btn" data-nav-i18n="menu" aria-label="Menu" aria-expanded="false">Menu</button>
+      <div class="nav-search-wrapper" style="position: relative; margin-right: auto; margin-left: 24px; flex: 1; max-width: 320px;">
+        <input type="text" id="global-search-input" placeholder="Search watches..." autocomplete="off" style="width: 100%; border: 1px solid var(--line); border-radius: 999px; padding: 6px 16px; font-size: 0.85rem; background: var(--bg-soft); color: var(--text);">
+        <div id="global-search-results" style="position: absolute; top: calc(100% + 8px); left: 0; right: 0; background: var(--card); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); max-height: 380px; overflow-y: auto; z-index: 50; display: none; padding: 8px; flex-direction: column; gap: 4px;"></div>
+      </div>
+            <nav class="nav" id="main-nav">
+        <div class="nav-item">
+          <a href="#" class="mega-trigger" data-i18n="navCatalog">Kataloq</a>
+          <div class="mega-menu">
+            <div class="mega-col">
+              <h4 data-i18n="megaCollections">Kolleksiyalar</h4>
+              <ul>
+                <li><a href="catalog.html?category=original" data-i18n="megaOriginal">Original Seriya</a></li>
+                <li><a href="catalog.html?category=design" data-i18n="megaDesign">Dizayn Saatlar</a></li>
+                <li><a href="catalog.html?sort=newest" data-i18n="megaNew">Yeni Gələnlər</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <h4 data-i18n="megaBrands">Brendlər</h4>
+              <ul>
+                <li><a href="catalog.html?brand=Curren">Curren</a></li>
+                <li><a href="catalog.html?brand=Naviforce">Naviforce</a></li>
+                <li><a href="catalog.html?brand=CRRJU">CRRJU</a></li>
+                <li><a href="catalog.html?brand=Imperium">Imperium</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <h4 data-i18n="megaCategories">Kateqoriyalar</h4>
+              <ul>
+                <li><a href="catalog.html?type=watch" data-i18n="megaWatches">Saatlar</a></li>
+                <li><a href="catalog.html?type=perfume" data-i18n="megaPerfumes">Parfümlər</a></li>
+                <li><a href="catalog.html?type=accessory" data-i18n="megaAccessories">Aksesuarlar</a></li>
+              </ul>
+            </div>
+            <div class="mega-promo">
+              <div class="promo-item">
+                <span class="promo-icon">🎁</span>
+                <div class="promo-info">
+                  <h5 data-i18n="megaPromo1Title">Endirim Kodu</h5>
+                  <p data-i18n="megaPromo1Text">COMEBACK10 ilə 10% endirim</p>
+                </div>
+              </div>
+              <div class="promo-item">
+                <span class="promo-icon">🚚</span>
+                <div class="promo-info">
+                  <h5 data-i18n="megaPromo2Title">Pulsuz Çatdırılma</h5>
+                  <p data-i18n="megaPromo2Text">100 AZN-dən yuxarı sifarişlərdə</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="add-product.html" data-i18n="navAddProduct">Məhsul əlavə et</a>
+        <a href="../index.html#about" data-i18n="navAbout">Haqqımızda</a>
+        <a href="../index.html#contact" data-i18n="navContact">Əlaqə</a>
+      </nav>
+    </div>
+  </header>
+  <main class="section container">
+    <div class="section-head">
+      <p class="eyebrow">Account</p>
+      <h1 id="messages-title">Messages</h1>
+      <p id="messages-intro">Private chat with support/admin.</p>
+    </div>
+    <section class="admin-panel">
+      <div class="admin-messages-layout">
+        <aside id="messages-contacts" class="admin-contacts"></aside>
+        <div>
+          <div id="messages-thread" class="admin-chat-list"></div>
+          <form id="messages-send-form" class="admin-form admin-send-form">
+            <textarea id="messages-text" name="text" rows="3" placeholder="Type a message"></textarea>
+            <button id="messages-send-btn" class="btn btn-primary" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+      <div id="messages-message" class="admin-message" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="footer" style="padding-top: 60px;">
+    <div class="container instagram-feed" style="margin-bottom: 60px;">
+      <h3 style="text-align: center; margin-bottom: 24px; font-family: var(--font-fancy); font-size: 1.5rem;" data-i18n="instagramTitle">@watchtopia.az on Instagram</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+        <a href="#" target="_blank" style="aspect-ratio: 1; overflow: hidden; border-radius: 12px;"><img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=400&q=80" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></a>
+        <a href="#" target="_blank" style="aspect-ratio: 1; overflow: hidden; border-radius: 12px;"><img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=400&q=80" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></a>
+        <a href="#" target="_blank" style="aspect-ratio: 1; overflow: hidden; border-radius: 12px;"><img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=400&q=80" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></a>
+        <a href="#" target="_blank" style="aspect-ratio: 1; overflow: hidden; border-radius: 12px;"><img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=400&q=80" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></a>
+      </div>
+    </div>
+
+    <div class="container newsletter-section" style="margin-bottom: 60px; text-align: center; padding: 48px 24px; background: var(--bg-soft); border-radius: 16px; border: 1px solid var(--line);">
+      <h3 style="margin-bottom: 12px; font-family: var(--font-fancy); font-size: 1.5rem;" data-i18n="newsletterTitle">Xəbərlərə abunə olun</h3>
+      <p style="color: var(--muted); margin-bottom: 24px; max-width: 500px; margin-inline: auto;" data-i18n="newsletterText">Yeni kolleksiyalar və eksklüziv endirimlər barədə ilk siz xəbərdar olun.</p>
+      <form id="newsletter-form" style="display: flex; gap: 8px; justify-content: center; max-width: 450px; margin: 0 auto; flex-wrap: wrap;">
+        <input type="email" id="newsletter-email" data-i18n-placeholder="newsletterPlaceholder" placeholder="E-mail ünvanınız" required style="flex: 1; min-width: 200px; padding: 14px 20px; border: 1px solid var(--line); border-radius: 99px; font-size: 1rem; background: var(--card); color: var(--text);">
+        <button type="submit" class="btn btn-primary" style="border-radius: 99px; padding: 14px 32px;" data-i18n="newsletterSubmit">Abunə ol</button>
+      </form>
+    </div>
+
+    <div class="container footer-wrap">
+      <p data-i18n="footerRights">© 2026 watchtopia. Butun huquqlar qorunur.</p>
+      <div class="footer-end">
+        <p data-i18n="footerLegal">Yalnız legal və original məhsullar təqdim olunur.</p>
+        <a href="#" data-contact="whatsapp" data-i18n="footerOrder">WhatsApp ilə sifariş</a>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/core/nav.js"></script>
+  <script src="../assets/js/core/auth.js"></script>
+  <script src="../assets/js/core/auth-ui.js"></script>
+  <script src="../assets/js/pages/messages.js"></script>
+</body>
+</html>
+
+
+
+

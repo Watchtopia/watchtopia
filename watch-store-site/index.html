@@ -1,0 +1,608 @@
+﻿<!doctype html>
+<html lang="az">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>watchtopia | Premium Saatlar S?rf?li Qiym?t?</title>
+  <meta name="description"
+    content="watchtopia — original s?rf?li brend saatlar v? premium uslubda kolleksiya. Catd?r?lma yaln?z Az?rbaycan uzr?.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="assets/css/styles.css" as="style">
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+    as="style">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+
+  <header class="header">
+    <div class="container nav-wrap">
+      <a href="#" class="logo">watch<span>topia</span></a>
+      <div class="lang-switch">
+        <button class="lang-btn is-active" type="button" data-lang="az">AZ</button>
+        <button class="lang-btn" type="button" data-lang="ru">RU</button>
+        <button class="lang-btn" type="button" data-lang="en">EN</button>
+      </div>
+      <button id="theme-toggle" class="btn"
+        style="background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; cursor: pointer; color: var(--text); display: flex; align-items: center; justify-content: center;"
+        aria-label="Toggle Dark Mode">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="theme-icon-moon">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      <button class="menu-btn" data-i18n="menu" aria-label="Menu" aria-expanded="false">Menu</button>
+      <div class="nav-search-wrapper"
+        style="position: relative; margin-right: auto; margin-left: 24px; flex: 1; max-width: 320px;">
+        <input type="text" id="global-search-input" placeholder="Search watches..." autocomplete="off"
+          style="width: 100%; border: 1px solid var(--line); border-radius: 999px; padding: 6px 16px; font-size: 0.85rem; background: var(--bg-soft); color: var(--text);">
+        <div id="global-search-results"
+          style="position: absolute; top: calc(100% + 8px); left: 0; right: 0; background: var(--card); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); max-height: 380px; overflow-y: auto; z-index: 50; display: none; padding: 8px; flex-direction: column; gap: 4px;">
+        </div>
+      </div>
+      <nav class="nav" id="main-nav">
+        <div class="nav-item">
+          <a href="#" class="mega-trigger" data-i18n="navCatalog">Kataloq</a>
+          <div class="mega-menu">
+            <div class="mega-col">
+              <h4 data-i18n="megaCollections">Kolleksiyalar</h4>
+              <ul>
+                <li><a href="pages/catalog.html?category=original" data-i18n="megaOriginal">Original Seriya</a></li>
+                <li><a href="pages/catalog.html?category=design" data-i18n="megaDesign">Dizayn Saatlar</a></li>
+                <li><a href="pages/catalog.html?sort=newest" data-i18n="megaNew">Yeni Gələnlər</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <h4 data-i18n="megaBrands">Brendlər</h4>
+              <ul>
+                <li><a href="pages/catalog.html?brand=Curren">Curren</a></li>
+                <li><a href="pages/catalog.html?brand=Naviforce">Naviforce</a></li>
+                <li><a href="pages/catalog.html?brand=CRRJU">CRRJU</a></li>
+                <li><a href="pages/catalog.html?brand=Imperium">Imperium</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <h4 data-i18n="megaCategories">Kateqoriyalar</h4>
+              <ul>
+                <li><a href="pages/catalog.html?type=watch" data-i18n="megaWatches">Saatlar</a></li>
+                <li><a href="pages/catalog.html?type=perfume" data-i18n="megaPerfumes">Parfümlər</a></li>
+                <li><a href="pages/catalog.html?type=accessory" data-i18n="megaAccessories">Aksesuarlar</a></li>
+              </ul>
+            </div>
+            <div class="mega-promo">
+              <div class="promo-item">
+                <span class="promo-icon">🎁</span>
+                <div class="promo-info">
+                  <h5 data-i18n="megaPromo1Title">Endirim Kodu</h5>
+                  <p data-i18n="megaPromo1Text">COMEBACK10 ilə 10% endirim</p>
+                </div>
+              </div>
+              <div class="promo-item">
+                <span class="promo-icon">🚚</span>
+                <div class="promo-info">
+                  <h5 data-i18n="megaPromo2Title">Pulsuz Çatdırılma</h5>
+                  <p data-i18n="megaPromo2Text">100 AZN-dən yuxarı sifarişlərdə</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="pages/add-product.html" data-i18n="navAddProduct">Məhsul əlavə et</a>
+        <a href="index.html#about" data-i18n="navAbout">Haqqımızda</a>
+        <a href="index.html#contact" data-i18n="navContact">Əlaqə</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-slider reveal" id="hero-slider">
+        <div class="slides">
+          <div class="slide is-active"
+            style="background-image: url('https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1600&q=80');">
+          </div>
+          <div class="slide"
+            style="background-image: url('https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=1600&q=80');">
+          </div>
+          <div class="slide"
+            style="background-image: url('https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=1600&q=80');">
+          </div>
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+          <p class="eyebrow" data-i18n="heroEyebrow">Z?rif uslub, d?qiq mexanizm</p>
+          <h1 data-i18n="heroTitle">Bahal? gorun?n, uzunomurlu saatlar.</h1>
+          <p class="hero-text" data-i18n="heroText">Original s?rf?li brendl?r v? premium estetikal? modell?r. Butun
+            Az?rbaycan uzr? sur?tli catd?r?lma, yoxlan?s v? z?man?t.</p>
+          <div class="hero-actions">
+            <a href="#catalog" class="btn btn-primary" data-i18n="heroCatalog">Kataloqa bax</a>
+            <a href="#contact" class="btn btn-ghost" data-i18n="heroContact">Muraci?t et</a>
+          </div>
+          <ul class="stats">
+            <li><strong>2 500+</strong><span data-i18n="statClients">m?mnun must?ri</span></li>
+            <li><strong>24 saat</strong><span data-i18n="statShipping">orta gond?ris vaxt?</span></li>
+            <li><strong>12 ay</strong><span data-i18n="statWarranty">mexanizm? z?man?t</span></li>
+          </ul>
+        </div>
+
+        <div class="slider-controls">
+          <button class="slider-btn" id="slide-prev" aria-label="Previous slide">&#10094;</button>
+          <div class="slider-dots" id="slider-dots">
+            <button class="dot is-active" data-slide="0" aria-label="Slide 1"></button>
+            <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+            <button class="dot" data-slide="2" aria-label="Slide 3"></button>
+          </div>
+          <button class="slider-btn" id="slide-next" aria-label="Next slide">&#10095;</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalog" class="section container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="catalogEyebrow">Kataloq</p>
+        <h2 data-i18n="catalogTitle">Modelinizi secin</h2>
+      </div>
+
+      <div class="chips reveal">
+        <button class="chip is-active" data-filter="all" data-i18n="filterAll">Ham?s?</button>
+        <button class="chip" data-filter="original" data-i18n="filterOriginal">Original brendl?r</button>
+        <button class="chip" data-filter="design" data-i18n="filterDesign">Luxury stil</button>
+      </div>
+
+      <div class="cards" id="cards">
+        <article class="card reveal" data-category="original">
+          <div class="card-media" style="position: relative;">
+            <button class="btn-heart" type="button" data-toggle-favorite="naviforce-chrono"
+              aria-label="Toggle Favorite">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                </path>
+              </svg>
+            </button>
+            <div class="media-track">
+              <img class="card-image media-slide is-active"
+                src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1000&q=80"
+                alt="Naviforce Chrono Steel">
+              <img class="card-image media-slide"
+                src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1000&q=80"
+                alt="Naviforce Chrono Steel">
+              <img class="card-image media-slide"
+                src="https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=1000&q=80"
+                alt="Naviforce Chrono Steel">
+            </div>
+            <button class="media-btn media-btn-prev" type="button" aria-label="Previous image">&#10094;</button>
+            <button class="media-btn media-btn-next" type="button" aria-label="Next image">&#10095;</button>
+            <div class="media-dots"></div>
+          </div>
+          <div class="card-tag">ORIGINAL</div>
+          <h3>Naviforce Chrono Steel</h3>
+          <p data-i18n="card1Desc">Paslanmayan polad korpus, mineral sus?, 3 ATM suya davaml?l?q.</p>
+          <div class="card-meta">
+            <span data-i18n="cardInStock">Stokda var</span>
+            <strong>129 AZN</strong>
+          </div>
+          <div class="card-actions" style="display: flex; gap: 8px; flex-direction: column; margin-top: 16px;">
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-primary" type="button" data-add-cart="naviforce-chrono"
+                style="flex: 1; padding: 0 12px; min-height: 44px; font-size: 0.9rem;">?? S?b?t</button>
+              <a class="btn btn-ghost" href="pages/product.html?sku=naviforce-chrono" data-i18n="cardDetails"
+                style="flex: 1; text-align: center; display: flex; align-items: center; justify-content: center; padding: 0 12px; min-height: 44px; font-size: 0.9rem;">?trafl?</a>
+            </div>
+            <button class="btn btn-ghost" type="button" data-order-sku="naviforce-chrono" data-i18n="cardOrder"
+              style="width: 100%; min-height: 44px; font-size: 0.9rem; background: rgba(0,0,0,0.04);">Sifaris
+              et</button>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="original">
+          <div class="card-media" style="position: relative;">
+            <button class="btn-heart" type="button" data-toggle-favorite="curren-urban" aria-label="Toggle Favorite">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                </path>
+              </svg>
+            </button>
+            <div class="media-track">
+              <img class="card-image media-slide is-active"
+                src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1000&q=80"
+                alt="Curren Urban Classic">
+              <img class="card-image media-slide"
+                src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=1000&q=80"
+                alt="Curren Urban Classic">
+              <img class="card-image media-slide"
+                src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=1000&q=80"
+                alt="Curren Urban Classic">
+            </div>
+            <button class="media-btn media-btn-prev" type="button" aria-label="Previous image">&#10094;</button>
+            <button class="media-btn media-btn-next" type="button" aria-label="Next image">&#10095;</button>
+            <div class="media-dots"></div>
+          </div>
+          <div class="card-tag">ORIGINAL</div>
+          <h3>Curren Urban Classic</h3>
+          <p data-i18n="card2Desc">Sad? siferblat, eko-d?ri k?m?r, h?r gun ucun universal uslub.</p>
+          <div class="card-meta">
+            <span data-i18n="cardBestSeller">?n cox sat?lan</span>
+            <strong>99 AZN</strong>
+          </div>
+          <div class="card-actions" style="display: flex; gap: 8px; flex-direction: column; margin-top: 16px;">
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-primary" type="button" data-add-cart="curren-urban"
+                style="flex: 1; padding: 0 12px; min-height: 44px; font-size: 0.9rem;">?? S?b?t</button>
+              <a class="btn btn-ghost" href="pages/product.html?sku=curren-urban" data-i18n="cardDetails"
+                style="flex: 1; text-align: center; display: flex; align-items: center; justify-content: center; padding: 0 12px; min-height: 44px; font-size: 0.9rem;">?trafl?</a>
+            </div>
+            <button class="btn btn-ghost" type="button" data-order-sku="curren-urban" data-i18n="cardOrder"
+              style="width: 100%; min-height: 44px; font-size: 0.9rem; background: rgba(0,0,0,0.04);">Sifaris
+              et</button>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="original">
+          <div class="card-media" style="position: relative;">
+            <button class="btn-heart" type="button" data-toggle-favorite="crrju-heritage" aria-label="Toggle Favorite">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                </path>
+              </svg>
+            </button>
+            <div class="media-track">
+              <img class="card-image media-slide is-active"
+                src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=1000&q=80"
+                alt="Crrju Heritage Line">
+              <img class="card-image media-slide"
+                src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1000&q=80"
+                alt="Crrju Heritage Line">
+              <img class="card-image media-slide"
+                src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1000&q=80"
+                alt="Crrju Heritage Line">
+            </div>
+            <button class="media-btn media-btn-prev" type="button" aria-label="Previous image">&#10094;</button>
+            <button class="media-btn media-btn-next" type="button" aria-label="Next image">&#10095;</button>
+            <div class="media-dots"></div>
+          </div>
+          <div class="card-tag">ORIGINAL</div>
+          <h3>Crrju Heritage Line</h3>
+          <p data-i18n="card3Desc">Klassik dizayn, inc? korpus, koyn?k v? kostyum ucun ideal secim.</p>
+          <div class="card-meta">
+            <span data-i18n="cardNewArrival">Yeni kolleksiya</span>
+            <strong>109 AZN</strong>
+          </div>
+          <div class="card-actions" style="display: flex; gap: 8px; flex-direction: column; margin-top: 16px;">
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-primary" type="button" data-add-cart="crrju-heritage"
+                style="flex: 1; padding: 0 12px; min-height: 44px; font-size: 0.9rem;">?? S?b?t</button>
+              <a class="btn btn-ghost" href="pages/product.html?sku=crrju-heritage" data-i18n="cardDetails"
+                style="flex: 1; text-align: center; display: flex; align-items: center; justify-content: center; padding: 0 12px; min-height: 44px; font-size: 0.9rem;">?trafl?</a>
+            </div>
+            <button class="btn btn-ghost" type="button" data-order-sku="crrju-heritage" data-i18n="cardOrder"
+              style="width: 100%; min-height: 44px; font-size: 0.9rem; background: rgba(0,0,0,0.04);">Sifaris
+              et</button>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="design">
+          <div class="card-media" style="position: relative;">
+            <button class="btn-heart" type="button" data-toggle-favorite="imperium-octa" aria-label="Toggle Favorite">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                </path>
+              </svg>
+            </button>
+            <div class="media-track">
+              <img class="card-image media-slide is-active"
+                src="https://images.unsplash.com/photo-1594534475808-b18fc33b045e?auto=format&fit=crop&w=1000&q=80"
+                alt="Imperium Octa Black">
+              <img class="card-image media-slide"
+                src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=1000&q=80"
+                alt="Imperium Octa Black">
+              <img class="card-image media-slide"
+                src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=1000&q=80"
+                alt="Imperium Octa Black">
+            </div>
+            <button class="media-btn media-btn-prev" type="button" aria-label="Previous image">&#10094;</button>
+            <button class="media-btn media-btn-next" type="button" aria-label="Next image">&#10095;</button>
+            <div class="media-dots"></div>
+          </div>
+          <div class="card-tag">DESIGN</div>
+          <h3>Imperium Octa Black</h3>
+          <p data-i18n="card4Desc">K?skin bucaql? siluet v? guclu bezell? premium idman gorunusu.</p>
+          <div class="card-meta">
+            <span data-i18n="cardLimited">M?hdud say</span>
+            <strong>169 AZN</strong>
+          </div>
+          <div class="card-actions" style="display: flex; gap: 8px; flex-direction: column; margin-top: 16px;">
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-primary" type="button" data-add-cart="imperium-octa"
+                style="flex: 1; padding: 0 12px; min-height: 44px; font-size: 0.9rem;">?? S?b?t</button>
+              <a class="btn btn-ghost" href="pages/product.html?sku=imperium-octa" data-i18n="cardDetails"
+                style="flex: 1; text-align: center; display: flex; align-items: center; justify-content: center; padding: 0 12px; min-height: 44px; font-size: 0.9rem;">?trafl?</a>
+            </div>
+            <button class="btn btn-ghost" type="button" data-order-sku="imperium-octa" data-i18n="cardOrder"
+              style="width: 100%; min-height: 44px; font-size: 0.9rem; background: rgba(0,0,0,0.04);">Sifaris
+              et</button>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="design">
+          <div class="card-media" style="position: relative;">
+            <button class="btn-heart" type="button" data-toggle-favorite="royal-moonphase" aria-label="Toggle Favorite">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                </path>
+              </svg>
+            </button>
+            <div class="media-track">
+              <img class="card-image media-slide is-active"
+                src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=1000&q=80"
+                alt="Royal Moonphase Gold">
+              <img class="card-image media-slide"
+                src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=1000&q=80"
+                alt="Royal Moonphase Gold">
+              <img class="card-image media-slide"
+                src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=1000&q=80"
+                alt="Royal Moonphase Gold">
+            </div>
+            <button class="media-btn media-btn-prev" type="button" aria-label="Previous image">&#10094;</button>
+            <button class="media-btn media-btn-next" type="button" aria-label="Next image">&#10095;</button>
+            <div class="media-dots"></div>
+          </div>
+          <div class="card-tag">DESIGN</div>
+          <h3>Royal Moonphase Gold</h3>
+          <p data-i18n="card5Desc">Q?z?l? aksent, coxqatl? siferblat v? premium t?qdimat.</p>
+          <div class="card-meta">
+            <span data-i18n="cardPreorder">On sifaris</span>
+            <strong>189 AZN</strong>
+          </div>
+          <div class="card-actions" style="display: flex; gap: 8px; flex-direction: column; margin-top: 16px;">
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-primary" type="button" data-add-cart="royal-moonphase"
+                style="flex: 1; padding: 0 12px; min-height: 44px; font-size: 0.9rem;">?? S?b?t</button>
+              <a class="btn btn-ghost" href="pages/product.html?sku=royal-moonphase" data-i18n="cardDetails"
+                style="flex: 1; text-align: center; display: flex; align-items: center; justify-content: center; padding: 0 12px; min-height: 44px; font-size: 0.9rem;">?trafl?</a>
+            </div>
+            <button class="btn btn-ghost" type="button" data-order-sku="royal-moonphase" data-i18n="cardOrder"
+              style="width: 100%; min-height: 44px; font-size: 0.9rem; background: rgba(0,0,0,0.04);">Sifaris
+              et</button>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="design">
+          <div class="card-media" style="position: relative;">
+            <button class="btn-heart" type="button" data-toggle-favorite="chronarch-skeleton"
+              aria-label="Toggle Favorite">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                </path>
+              </svg>
+            </button>
+            <div class="media-track">
+              <img class="card-image media-slide is-active"
+                src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=1000&q=80"
+                alt="Chronarch Skeleton One">
+              <img class="card-image media-slide"
+                src="https://images.unsplash.com/photo-1594534475808-b18fc33b045e?auto=format&fit=crop&w=1000&q=80"
+                alt="Chronarch Skeleton One">
+              <img class="card-image media-slide"
+                src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1000&q=80"
+                alt="Chronarch Skeleton One">
+            </div>
+            <button class="media-btn media-btn-prev" type="button" aria-label="Previous image">&#10094;</button>
+            <button class="media-btn media-btn-next" type="button" aria-label="Next image">&#10095;</button>
+            <div class="media-dots"></div>
+          </div>
+          <div class="card-tag">DESIGN</div>
+          <h3>Chronarch Skeleton One</h3>
+          <p data-i18n="card6Desc">Skeleton estetika, mexanizm detallar? v? metal qolbaq vurgusu.</p>
+          <div class="card-meta">
+            <span data-i18n="cardLeftFew">Son 6 ?d?d</span>
+            <strong>209 AZN</strong>
+          </div>
+          <div class="card-actions" style="display: flex; gap: 8px; flex-direction: column; margin-top: 16px;">
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-primary" type="button" data-add-cart="chronarch-skeleton"
+                style="flex: 1; padding: 0 12px; min-height: 44px; font-size: 0.9rem;">?? S?b?t</button>
+              <a class="btn btn-ghost" href="pages/product.html?sku=chronarch-skeleton" data-i18n="cardDetails"
+                style="flex: 1; text-align: center; display: flex; align-items: center; justify-content: center; padding: 0 12px; min-height: 44px; font-size: 0.9rem;">?trafl?</a>
+            </div>
+            <button class="btn btn-ghost" type="button" data-order-sku="chronarch-skeleton" data-i18n="cardOrder"
+              style="width: 100%; min-height: 44px; font-size: 0.9rem; background: rgba(0,0,0,0.04);">Sifaris
+              et</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="catalog-cta reveal">
+        <a class="btn btn-ghost" href="pages/catalog.html" data-i18n="fullCatalog">Butun kataloqa bax</a>
+      </div>
+    </section>
+
+    <section id="about" class="section section-soft">
+      <div class="container about-grid">
+        <div class="about-copy reveal">
+          <p class="eyebrow" data-i18n="aboutEyebrow">Niy? bizi secirl?r</p>
+          <h2 data-i18n="aboutTitle">Art?q od?m?d?n premium t?crub?</h2>
+          <p data-i18n="aboutText">Guclu dizayna sahib s?rf?li saatlar? secir, keyfiyy?ti yoxlay?r v? s?ffaf s?rtl?rl?
+            t?qdim edirik.</p>
+        </div>
+        <div class="about-points reveal">
+          <article>
+            <h3 data-i18n="aboutCard1Title">Gond?risd?n onc? yoxlan?s</h3>
+            <p data-i18n="aboutCard1Text">H?r model vizual bax?sdan v? d?qiqlik testind?n kecir.</p>
+          </article>
+          <article>
+            <h3 data-i18n="aboutCard2Title">Z?man?t d?st?yi</h3>
+            <p data-i18n="aboutCard2Text">Sat?sdan sonra mexanizm v? istifad? suallar? uzr? kom?k edirik.</p>
+          </article>
+          <article>
+            <h3 data-i18n="aboutCard3Title">H?diyy?lik qablasd?rma</h3>
+            <p data-i18n="aboutCard3Text">Qutu dizayn? il? saatlar h?diyy? ucun d? haz?r olur.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section container">
+      <div class="section-head reveal">
+        <p class="eyebrow">FAQ</p>
+        <h2 data-i18n="faqTitle">Tez-tez veril?n suallar</h2>
+      </div>
+      <div class="faq-list">
+        <article class="faq-item reveal">
+          <button class="faq-question" data-i18n="faqQ1">Sifaris n? q?d?r tez gond?rilir?</button>
+          <div class="faq-answer" data-i18n="faqA1">Ad?t?n t?sdiqd?n sonra 24 saat ?rzind?. Yuks?k yukl?nm?d? 48 saata
+            q?d?r uzana bil?r.</div>
+        </article>
+        <article class="faq-item reveal">
+          <button class="faq-question" data-i18n="faqQ2">Z?man?t mudd?ti n? q?d?rdir?</button>
+          <div class="faq-answer" data-i18n="faqA2">Mexanizm ucun 12 ay z?man?t veririk. Istifad? qaydalar?na ?m?l
+            edilm?lidir.</div>
+        </article>
+        <article class="faq-item reveal">
+          <button class="faq-question" data-i18n="faqQ3">Catd?r?lma hara mumkundur?</button>
+          <div class="faq-answer" data-i18n="faqA3">Catd?r?lma yaln?z Az?rbaycan uzr? h?yata kecirilir. S?h?r v?
+            rayonlara uygun kuryer/post seciml?ri movcuddur.</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section container">
+      <div class="contact reveal">
+        <div>
+          <p class="eyebrow" data-i18n="contactEyebrow">?laq?</p>
+          <h2 data-i18n="contactTitle">Muraci?t edin, stiliniz? uygun modeli birlikd? sec?k</h2>
+          <p data-i18n="contactText">WhatsApp, Telegram v? ya z?ng ucun nomr? burax?n. Is saatlar?nda 10 d?qiq? ?rzind?
+            cavab veririk.</p>
+          <div class="contact-links">
+            <a href="#" data-contact="whatsapp">WhatsApp</a>
+            <a href="#" data-contact="telegram">Telegram</a>
+            <a href="#" data-contact="instagram">Instagram</a>
+          </div>
+        </div>
+        <form class="contact-form">
+          <label>
+            <span data-i18n="formName">Ad</span>
+            <input type="text" data-i18n-placeholder="formNamePlaceholder" placeholder="Ad?n?z" required>
+          </label>
+          <label>
+            <span data-i18n="formPhone">Telefon / Telegram</span>
+            <input type="text" data-i18n-placeholder="formPhonePlaceholder" placeholder="+994 ..." required>
+          </label>
+          <label>
+            <span data-i18n="formNeed">N? axtar?rs?n?z</span>
+            <textarea rows="4" data-i18n-placeholder="formNeedPlaceholder"
+              placeholder="M?s?l?n: qara siferblat, metal qolbaq, 150 AZN-? q?d?r" required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary" data-i18n="formSubmit">Muraci?t gond?r</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" style="padding-top: 60px;">
+    <div class="container instagram-feed" style="margin-bottom: 60px;">
+      <h3 style="text-align: center; margin-bottom: 24px; font-family: var(--font-fancy); font-size: 1.5rem;"
+        data-i18n="instagramTitle">@watchtopia.az on Instagram</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+        <a href="#" target="_blank" style="aspect-ratio: 1; overflow: hidden; border-radius: 12px;"><img
+            src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=400&q=80"
+            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
+            loading="lazy"></a>
+        <a href="#" target="_blank" style="aspect-ratio: 1; overflow: hidden; border-radius: 12px;"><img
+            src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=400&q=80"
+            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
+            loading="lazy"></a>
+        <a href="#" target="_blank" style="aspect-ratio: 1; overflow: hidden; border-radius: 12px;"><img
+            src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=400&q=80"
+            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
+            loading="lazy"></a>
+        <a href="#" target="_blank" style="aspect-ratio: 1; overflow: hidden; border-radius: 12px;"><img
+            src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=400&q=80"
+            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
+            loading="lazy"></a>
+      </div>
+    </div>
+
+    <div class="container newsletter-section"
+      style="margin-bottom: 60px; text-align: center; padding: 48px 24px; background: var(--bg-soft); border-radius: 16px; border: 1px solid var(--line);">
+      <h3 style="margin-bottom: 12px; font-family: var(--font-fancy); font-size: 1.5rem;" data-i18n="newsletterTitle">
+        Xəbərlərə abunə olun</h3>
+      <p style="color: var(--muted); margin-bottom: 24px; max-width: 500px; margin-inline: auto;"
+        data-i18n="newsletterText">Yeni kolleksiyalar və eksklüziv endirimlər barədə ilk siz xəbərdar olun.</p>
+      <form id="newsletter-form"
+        style="display: flex; gap: 8px; justify-content: center; max-width: 450px; margin: 0 auto; flex-wrap: wrap;">
+        <input type="email" id="newsletter-email" data-i18n-placeholder="newsletterPlaceholder"
+          placeholder="E-mail ünvanınız" required
+          style="flex: 1; min-width: 200px; padding: 14px 20px; border: 1px solid var(--line); border-radius: 99px; font-size: 1rem; background: var(--card); color: var(--text);">
+        <button type="submit" class="btn btn-primary" style="border-radius: 99px; padding: 14px 32px;"
+          data-i18n="newsletterSubmit">Abunə ol</button>
+      </form>
+    </div>
+
+    <div class="container footer-trust">
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        <span data-i18n="trustSSL">SSL Təhlükəsizlik</span>
+      </div>
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+          <line x1="1" y1="10" x2="23" y2="10"></line>
+        </svg>
+        <span data-i18n="trustPayment">Təhlükəsiz Ödəniş</span>
+      </div>
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <span data-i18n="trustQuality">100% Orijinal</span>
+      </div>
+    </div>
+
+    <div class="container footer-wrap">
+      <p data-i18n="footerRights">© 2026 watchtopia. Butun huquqlar qorunur.</p>
+      <div class="footer-end">
+        <p data-i18n="footerLegal">Yaln?z legal v? original m?hsullar t?qdim olunur.</p>
+        <a href="#" data-contact="whatsapp" data-i18n="footerOrder">WhatsApp il? sifaris</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/core/products-store.js"></script>
+  <script src="assets/js/core/auth.js"></script>
+  <script src="assets/js/core/auth-ui.js"></script>
+  <script src="assets/js/pages/script.js"></script>
+</body>
+
+</html>

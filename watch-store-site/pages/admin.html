@@ -1,0 +1,828 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>watchtopia | Admin Panel</title>
+  <meta name="description" content="watchtopia owner admin panel">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="../assets/css/styles.css" as="style">
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+    as="style">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body data-require-admin-support="true">
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+
+  <header class="header">
+    <div class="container nav-wrap">
+      <a href="../index.html" class="logo">watch<span>topia</span></a>
+      <div class="lang-switch" aria-label="Language switcher">
+        <button class="lang-btn is-active" data-lang="az">AZ</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="menu-btn" data-nav-i18n="menu" aria-label="Menu" aria-expanded="false">Menu</button>
+      <div class="nav-search-wrapper"
+        style="position: relative; margin-right: auto; margin-left: 24px; flex: 1; max-width: 320px;">
+        <input type="text" id="global-search-input" placeholder="Search watches..." autocomplete="off"
+          style="width: 100%; border: 1px solid var(--line); border-radius: 999px; padding: 6px 16px; font-size: 0.85rem; background: var(--bg-soft); color: var(--text);">
+        <div id="global-search-results"
+          style="position: absolute; top: calc(100% + 8px); left: 0; right: 0; background: var(--card); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); max-height: 380px; overflow-y: auto; z-index: 50; display: none; padding: 8px; flex-direction: column; gap: 4px;">
+        </div>
+      </div>
+      <nav class="nav" id="main-nav">
+        <div style="position: relative; margin-right: 12px; cursor: pointer;" id="admin-notifications-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+          <span id="admin-notifications-badge"
+            style="position: absolute; top: -4px; right: -4px; background: var(--danger, #ff4d4f); color: #fff; font-size: 10px; font-weight: bold; width: 16px; height: 16px; border-radius: 50%; display: none; align-items: center; justify-content: center;">0</span>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="mega-trigger" data-i18n="navCatalog">Kataloq</a>
+          <div class="mega-menu">
+            <div class="mega-col">
+              <h4 data-i18n="megaCollections">Kolleksiyalar</h4>
+              <ul>
+                <li><a href="catalog.html?category=original" data-i18n="megaOriginal">Original Seriya</a></li>
+                <li><a href="catalog.html?category=design" data-i18n="megaDesign">Dizayn Saatlar</a></li>
+                <li><a href="catalog.html?sort=newest" data-i18n="megaNew">Yeni Gələnlər</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <h4 data-i18n="megaBrands">Brendlər</h4>
+              <ul>
+                <li><a href="catalog.html?brand=Curren">Curren</a></li>
+                <li><a href="catalog.html?brand=Naviforce">Naviforce</a></li>
+                <li><a href="catalog.html?brand=CRRJU">CRRJU</a></li>
+                <li><a href="catalog.html?brand=Imperium">Imperium</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <h4 data-i18n="megaCategories">Kateqoriyalar</h4>
+              <ul>
+                <li><a href="catalog.html?type=watch" data-i18n="megaWatches">Saatlar</a></li>
+                <li><a href="catalog.html?type=perfume" data-i18n="megaPerfumes">Parfümlər</a></li>
+                <li><a href="catalog.html?type=accessory" data-i18n="megaAccessories">Aksesuarlar</a></li>
+              </ul>
+            </div>
+            <div class="mega-promo">
+              <div class="promo-item">
+                <span class="promo-icon">🎁</span>
+                <div class="promo-info">
+                  <h5 data-i18n="megaPromo1Title">Endirim Kodu</h5>
+                  <p data-i18n="megaPromo1Text">COMEBACK10 ilə 10% endirim</p>
+                </div>
+              </div>
+              <div class="promo-item">
+                <span class="promo-icon">🚚</span>
+                <div class="promo-info">
+                  <h5 data-i18n="megaPromo2Title">Pulsuz Çatdırılma</h5>
+                  <p data-i18n="megaPromo2Text">100 AZN-dən yuxarı sifarişlərdə</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="add-product.html" data-i18n="navAddProduct">Məhsul əlavə et</a>
+        <a href="../index.html#about" data-i18n="navAbout">Haqqımızda</a>
+        <a href="../index.html#contact" data-i18n="navContact">Əlaqə</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section container">
+    <div class="section-head">
+      <p class="eyebrow">Owner only</p>
+      <h1 id="admin-title">Admin Panel</h1>
+      <p id="admin-intro">Users, roles, products, orders, support messages, audit log.</p>
+    </div>
+
+    <section class="admin-panel">
+      <div class="tabs-nav" id="admin-tabs">
+        <button class="chip is-active" type="button" data-admin-tab="dashboard"
+          id="admin-tab-dashboard-btn">Dashboard</button>
+        <button class="chip" type="button" data-admin-tab="users" id="admin-tab-users-btn">Users</button>
+        <button class="chip" type="button" data-admin-tab="products" id="admin-tab-products-btn">Products</button>
+        <button class="chip" type="button" data-admin-tab="orders" id="admin-tab-orders-btn">Orders</button>
+        <button class="chip" type="button" data-admin-tab="messages" id="admin-tab-messages-btn">Messages</button>
+        <button class="chip" type="button" data-admin-tab="logs" id="admin-tab-logs-btn">Logs</button>
+        <button class="chip" type="button" data-admin-tab="comments" id="admin-tab-comments-btn">Comments</button>
+        <button class="chip" type="button" data-admin-tab="newsletter" id="admin-tab-newsletter-btn">Newsletter</button>
+        <button class="chip" type="button" data-admin-tab="promos" id="admin-tab-promos-btn">Promos</button>
+        <button class="chip" type="button" data-admin-tab="settings" id="admin-tab-settings-btn">Settings</button>
+      </div>
+
+      <div id="admin-tab-dashboard" data-admin-panel="dashboard">
+        <h2 style="margin-bottom: 24px;">Store Overview</h2>
+        <ul class="stats"
+          style="margin-bottom: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+          <li
+            style="background: #fff; padding: 20px; border-radius: 12px; border: 1px solid var(--line); display: flex; flex-direction: column; align-items: flex-start; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+            <div
+              style="background: rgba(40,167,69,0.1); color: #28a745; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <strong id="admin-stat-revenue" style="font-size: 1.5rem; margin-bottom: 4px;">0 AZN</strong>
+            <span style="color: var(--muted); font-size: 0.9rem;">Total Revenue</span>
+          </li>
+          <li
+            style="background: #fff; padding: 20px; border-radius: 12px; border: 1px solid var(--line); display: flex; flex-direction: column; align-items: flex-start; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+            <div
+              style="background: rgba(0,123,255,0.1); color: #007bff; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+            </div>
+            <strong id="admin-stat-orders" style="font-size: 1.5rem; margin-bottom: 4px;">0</strong>
+            <span style="color: var(--muted); font-size: 0.9rem;">Total Orders</span>
+          </li>
+          <li
+            style="background: #fff; padding: 20px; border-radius: 12px; border: 1px solid var(--line); display: flex; flex-direction: column; align-items: flex-start; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+            <div
+              style="background: rgba(255,193,7,0.1); color: #ffc107; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                </path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+            <strong id="admin-stat-products" style="font-size: 1.5rem; margin-bottom: 4px;">0</strong>
+            <span style="color: var(--muted); font-size: 0.9rem;" data-i18n="totalProducts">Total Products</span>
+          </li>
+          <li
+            style="background: #fff; padding: 20px; border-radius: 12px; border: 1px solid var(--line); display: flex; flex-direction: column; align-items: flex-start; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+            <div
+              style="background: rgba(111,66,193,0.1); color: #6f42c1; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <strong id="admin-stat-users" style="font-size: 1.5rem; margin-bottom: 4px;">0</strong>
+            <span style="color: var(--muted); font-size: 0.9rem;">Total Users</span>
+          </li>
+          <li
+            style="background: #fff; padding: 20px; border-radius: 12px; border: 1px solid var(--line); display: flex; flex-direction: column; align-items: flex-start; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+            <div
+              style="background: rgba(23,162,184,0.1); color: #17a2b8; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </div>
+            <strong id="admin-stat-visits" style="font-size: 1.5rem; margin-bottom: 4px;">0</strong>
+            <span style="color: var(--muted); font-size: 0.9rem;" data-i18n="totalVisits">Total Visits</span>
+          </li>
+        </ul>
+        <div class="admin-grid" style="grid-template-columns: 1fr; max-width: 600px;">
+          <div
+            style="border: 1px solid var(--line); border-radius: 12px; padding: 24px; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+            <h3 style="margin-bottom: 20px;">Top 5 Most Viewed Products</h3>
+            <ul id="admin-stat-top-products"
+              style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 16px;">
+              <li>Loading views...</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="admin-tab-settings" data-admin-panel="settings" hidden>
+        <h2 style="margin-bottom: 24px;">Store Settings</h2>
+        <div
+          style="border: 1px solid var(--line); border-radius: 12px; padding: 24px; background: #fff; max-width: 900px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+          <h3>Home Banners (Hero Slider)</h3>
+          <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 20px;">Set 3 banners to display on the home
+            page. Leave title empty to hide text.</p>
+          <form id="admin-banners-form" class="admin-form">
+            <div id="admin-banners-list" style="display: flex; flex-direction: column; gap: 24px;">
+              <!-- JS will render 3 banner inputs here -->
+            </div>
+            <button class="btn btn-primary" type="submit"
+              style="margin-top: 24px; padding: 12px 24px; font-size: 1rem;">Save Banners</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="admin-tab-promos" data-admin-panel="promos" hidden>
+        <h2 style="margin-bottom: 24px;">Promo Codes</h2>
+        <div
+          style="border: 1px solid var(--line); border-radius: 12px; padding: 24px; background: #fff; max-width: 900px; margin-bottom: 24px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+          <h3>Create New Promo Code</h3>
+          <form id="admin-promos-form" class="admin-form" style="margin-top: 20px;">
+            <div class="admin-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+              <label><span style="margin-bottom: 8px; font-weight: 500;">Code</span><input type="text" name="code"
+                  required placeholder="e.g. SUMMER20"
+                  style="padding: 10px; border-radius: 8px; border: 1px solid var(--line);"></label>
+              <label><span style="margin-bottom: 8px; font-weight: 500;">Discount (%)</span><input type="number"
+                  name="discount" required min="1" max="100" placeholder="20"
+                  style="padding: 10px; border-radius: 8px; border: 1px solid var(--line);"></label>
+            </div>
+            <button class="btn btn-primary" type="submit"
+              style="margin-top: 20px; padding: 12px 24px; font-size: 1rem;">Add Promo Code</button>
+          </form>
+        </div>
+
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Discount</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-promos-list">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <div id="admin-tab-users" data-admin-panel="users" hidden>
+        <div class="chips" id="admin-users-subtabs">
+          <button class="chip is-active" type="button" data-users-subtab="create"
+            id="admin-users-subtab-create-btn">Create user</button>
+          <button class="chip" type="button" data-users-subtab="users" id="admin-users-subtab-users-btn">Users</button>
+          <button class="chip" type="button" data-users-subtab="roles" id="admin-users-subtab-roles-btn">Roles</button>
+          <button class="chip" type="button" data-users-subtab="block" id="admin-users-subtab-block-btn">Block</button>
+          <button class="chip" type="button" data-users-subtab="assign" id="admin-users-subtab-assign-btn">Assign
+            groups</button>
+          <button class="chip" type="button" data-users-subtab="groups"
+            id="admin-users-subtab-groups-btn">Groups</button>
+          <button class="chip" type="button" data-users-subtab="access"
+            id="admin-users-subtab-access-btn">Access</button>
+        </div>
+
+        <section data-users-panel="create">
+          <h2 id="admin-users-create-title">Create user</h2>
+          <form id="admin-create-user-form" class="admin-form">
+            <div class="admin-grid">
+              <label><span id="admin-label-user-name">Name</span><input name="name" required type="text"></label>
+              <label><span id="admin-label-user-email">Email</span><input name="email" required type="email"></label>
+              <label><span id="admin-label-user-password">Password</span><input name="password" required
+                  type="text"></label>
+              <label><span id="admin-label-user-phone">Phone</span><input name="phone" required type="tel"></label>
+              <label><span id="admin-label-user-birth-date">Birth date</span><input name="birthDate" required
+                  type="date"></label>
+              <label><span id="admin-label-user-role">Role</span>
+                <select name="role">
+                  <option value="CUSTOMER">CUSTOMER</option>
+                  <option value="ADMIN">ADMIN</option>
+                </select>
+              </label>
+            </div>
+            <button id="admin-create-user-btn" class="btn btn-primary" type="submit">Create user</button>
+          </form>
+        </section>
+
+        <section data-users-panel="users" hidden>
+          <h2 id="admin-users-list-title" style="margin-top:16px;">Users</h2>
+          <form id="admin-users-filters" class="admin-form">
+            <div class="admin-grid">
+              <label><span id="admin-users-search-label">Search</span><input id="admin-users-search" type="search"
+                  placeholder="Any field"></label>
+              <label><span id="admin-users-filter-id-label">User ID</span><input id="admin-users-filter-id" type="text"
+                  placeholder="user id"></label>
+              <label><span id="admin-users-filter-name-label">Name</span><input id="admin-users-filter-name" type="text"
+                  placeholder="Name"></label>
+              <label><span id="admin-users-filter-email-label">Email</span><input id="admin-users-filter-email"
+                  type="text" placeholder="Email"></label>
+              <label><span id="admin-users-filter-role-label">Role</span>
+                <select id="admin-users-filter-role">
+                  <option value="">All</option>
+                  <option value="OWNER">OWNER</option>
+                  <option value="ADMIN">ADMIN</option>
+                  <option value="CUSTOMER">CUSTOMER</option>
+                </select>
+              </label>
+              <label><span id="admin-users-filter-status-label">Status</span>
+                <select id="admin-users-filter-status">
+                  <option value="">All</option>
+                  <option value="active">Active</option>
+                  <option value="blocked">Blocked</option>
+                </select>
+              </label>
+              <label><span id="admin-users-filter-group-label">Group</span><input id="admin-users-filter-group"
+                  type="text" placeholder="group id or name"></label>
+              <label><span id="admin-users-filter-birth-from-label">Birth from</span><input
+                  id="admin-users-filter-birth-from" type="date"></label>
+              <label><span id="admin-users-filter-birth-to-label">Birth to</span><input id="admin-users-filter-birth-to"
+                  type="date"></label>
+            </div>
+            <button type="button" class="btn btn-ghost" id="admin-export-users-csv" style="margin-top: 12px;">Export
+              Users CSV</button>
+          </form>
+          <div id="admin-users" class="admin-table-wrap"></div>
+        </section>
+
+        <section data-users-panel="assign" hidden>
+          <h2 id="admin-users-assign-title" style="margin-top:16px;">Assign groups</h2>
+          <div id="admin-users-assign" class="admin-table-wrap"></div>
+          <form id="admin-user-groups-form" class="admin-form" hidden>
+            <input type="hidden" name="userId">
+            <h3 id="admin-user-groups-title">Assign groups</h3>
+            <div id="admin-user-groups-list" class="admin-permissions-grid"></div>
+            <div class="admin-actions">
+              <button id="admin-user-groups-save-btn" class="btn btn-primary" type="submit">Save assignment</button>
+              <button id="admin-user-groups-cancel-btn" class="btn btn-ghost" type="button">Cancel</button>
+            </div>
+          </form>
+        </section>
+
+        <section data-users-panel="groups" hidden>
+          <h2 id="admin-groups-title" style="margin-top:16px;">Groups</h2>
+          <div class="chips" id="admin-groups-subtabs">
+            <button class="chip is-active" type="button" data-groups-subtab="create"
+              id="admin-groups-subtab-create-btn">Create</button>
+            <button class="chip" type="button" data-groups-subtab="edit" id="admin-groups-subtab-edit-btn">Edit</button>
+            <button class="chip" type="button" data-groups-subtab="delete"
+              id="admin-groups-subtab-delete-btn">Delete</button>
+            <button class="chip" type="button" data-groups-subtab="matrix"
+              id="admin-groups-subtab-matrix-btn">Permission matrix</button>
+          </div>
+
+          <section data-groups-panel="create">
+            <form id="admin-create-group-form" class="admin-form">
+              <label><span id="admin-group-name-label">Group name</span><input name="name" type="text" required></label>
+              <div id="admin-group-permissions" class="admin-permissions-grid"></div>
+              <button id="admin-group-create-btn" class="btn btn-primary" type="submit">Create group</button>
+            </form>
+          </section>
+
+          <section data-groups-panel="manage" hidden>
+            <h3 id="admin-groups-mode-title" style="margin-top:12px;">Edit groups</h3>
+            <div id="admin-groups" class="admin-table-wrap" style="margin-top:12px;"></div>
+            <form id="admin-edit-group-form" class="admin-form" hidden>
+              <input type="hidden" name="groupId">
+              <label><span id="admin-group-edit-name-label">Group name</span><input name="name" type="text"
+                  required></label>
+              <div id="admin-group-edit-permissions" class="admin-permissions-grid"></div>
+              <div class="admin-actions">
+                <button id="admin-group-save-btn" class="btn btn-primary" type="submit">Save group</button>
+                <button id="admin-group-cancel-btn" class="btn btn-ghost" type="button">Cancel</button>
+              </div>
+            </form>
+          </section>
+        </section>
+
+        <section data-users-panel="access" hidden>
+          <h2 id="admin-access-title" style="margin-top:16px;">Access config</h2>
+          <form id="admin-access-form" class="admin-form">
+            <label>
+              <span id="admin-access-json-label">Access JSON</span>
+              <textarea id="admin-access-json" name="json" rows="10"
+                placeholder='{"version":1,"groups":[],"assignments":{}}'></textarea>
+            </label>
+            <div class="admin-actions">
+              <button id="admin-access-export-btn" class="btn btn-ghost" type="button">Export JSON</button>
+              <label class="btn btn-ghost" for="admin-access-file" id="admin-access-file-label">Load from file</label>
+              <input id="admin-access-file" type="file" accept="application/json,.json" hidden>
+              <button id="admin-access-import-btn" class="btn btn-primary" type="submit">Import JSON</button>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <div id="admin-tab-products" data-admin-panel="products" hidden>
+        <div class="chips" id="admin-products-subtabs">
+          <button class="chip is-active" type="button" data-products-subtab="create"
+            id="admin-products-subtab-create-btn">Create</button>
+          <button class="chip" type="button" data-products-subtab="edit"
+            id="admin-products-subtab-edit-btn">Edit</button>
+          <button class="chip" type="button" data-products-subtab="filters"
+            id="admin-products-subtab-filters-btn">Filters</button>
+          <button class="chip" type="button" data-products-subtab="list"
+            id="admin-products-subtab-list-btn">List</button>
+        </div>
+
+        <section data-products-panel="create">
+          <h2 id="admin-products-create-title">Create product</h2>
+          <form id="admin-create-product-form" class="admin-form">
+            <div class="admin-grid">
+              <label><span id="admin-label-product-name">Name</span><input name="name" required type="text"></label>
+              <label><span id="admin-label-product-sku">SKU</span><input name="sku" type="text"
+                  placeholder="optional"></label>
+              <label><span id="admin-label-product-brand">Brand</span><input name="brand" required type="text"></label>
+              <label><span id="admin-label-product-price">Price</span><input name="price" required type="number"
+                  step="0.01"></label>
+            </div>
+            <div class="admin-grid">
+              <label><span id="admin-label-product-category">Category</span>
+                <select name="category">
+                  <option value="original">original</option>
+                  <option value="design">design</option>
+                </select>
+              </label>
+              <label><span id="admin-label-product-type">Product type</span>
+                <select name="productType">
+                  <option value="watch">watch</option>
+                  <option value="perfume">perfume</option>
+                  <option value="glasses">glasses</option>
+                  <option value="wallet">wallet</option>
+                  <option value="accessory">accessory</option>
+                </select>
+              </label>
+              <label><span id="admin-label-product-unit-type">Unit type</span>
+                <select name="unitType">
+                  <option value="piece">piece</option>
+                  <option value="gram">gram</option>
+                  <option value="ml">ml</option>
+                </select>
+              </label>
+              <label><span id="admin-label-product-mechanism">Mechanism</span><input name="mechanism" type="text"
+                  value="Quartz"></label>
+              <label><span id="admin-label-product-status">Status</span><input name="status" type="text"
+                  value="In stock"></label>
+              <label><span id="admin-label-product-image">Image URL</span><input name="image" type="url"></label>
+            </div>
+            <label><span id="admin-label-product-variants">Variants (one per line: label | price)</span><textarea
+                name="variants" rows="3" placeholder="5 g | 19.9&#10;10 g | 34.9"></textarea></label>
+            <label><span id="admin-label-product-short-az">Short Description AZ</span><textarea
+                name="shortDescriptionAz" rows="2" required></textarea></label>
+            <label><span id="admin-label-product-short-ru">Short Description RU</span><textarea
+                name="shortDescriptionRu" rows="2"></textarea></label>
+            <label><span id="admin-label-product-short-en">Short Description EN</span><textarea
+                name="shortDescriptionEn" rows="2"></textarea></label>
+            <label><span id="admin-label-product-full-az">Full Description AZ</span><textarea name="descriptionAz"
+                rows="3" required></textarea></label>
+            <label><span id="admin-label-product-full-ru">Full Description RU</span><textarea name="descriptionRu"
+                rows="3"></textarea></label>
+            <label><span id="admin-label-product-full-en">Full Description EN</span><textarea name="descriptionEn"
+                rows="3"></textarea></label>
+            <label><span id="admin-label-product-features-az">Features AZ (one line per item)</span><textarea
+                name="featuresAz" rows="3"></textarea></label>
+            <label><span id="admin-label-product-features-ru">Features RU (one line per item)</span><textarea
+                name="featuresRu" rows="3"></textarea></label>
+            <label><span id="admin-label-product-features-en">Features EN (one line per item)</span><textarea
+                name="featuresEn" rows="3"></textarea></label>
+            <label><span id="admin-label-product-images">Photo URLs (one URL per line)</span><textarea name="images"
+                rows="3" required></textarea></label>
+            <label><span id="admin-label-product-videos">Video URLs (one URL per line)</span><textarea name="videos"
+                rows="3"></textarea></label>
+            <label><span id="admin-label-product-instagram">Instagram post URL</span><input name="instagramUrl"
+                type="url"></label>
+            <button id="admin-create-product-btn" class="btn btn-primary" type="submit">Create product</button>
+          </form>
+        </section>
+
+        <section data-products-panel="edit" hidden>
+          <h2 id="admin-products-edit-title" style="margin-top:16px;">Edit product</h2>
+          <form id="admin-edit-product-form" class="admin-form" hidden>
+            <input type="hidden" name="originalSku">
+            <div class="admin-grid">
+              <label><span id="admin-label-edit-name">Name</span><input name="name" required type="text"></label>
+              <label><span id="admin-label-edit-sku">SKU</span><input name="sku" required type="text"></label>
+              <label><span id="admin-label-edit-brand">Brand</span><input name="brand" required type="text"></label>
+              <label><span id="admin-label-edit-price">Price</span><input name="price" required type="number"
+                  step="0.01"></label>
+            </div>
+            <div class="admin-grid">
+              <label><span id="admin-label-edit-category">Category</span>
+                <select name="category">
+                  <option value="original">original</option>
+                  <option value="design">design</option>
+                </select>
+              </label>
+              <label><span id="admin-label-edit-product-type">Product type</span>
+                <select name="productType">
+                  <option value="watch">watch</option>
+                  <option value="perfume">perfume</option>
+                  <option value="glasses">glasses</option>
+                  <option value="wallet">wallet</option>
+                  <option value="accessory">accessory</option>
+                </select>
+              </label>
+              <label><span id="admin-label-edit-unit-type">Unit type</span>
+                <select name="unitType">
+                  <option value="piece">piece</option>
+                  <option value="gram">gram</option>
+                  <option value="ml">ml</option>
+                </select>
+              </label>
+              <label><span id="admin-label-edit-mechanism">Mechanism</span><input name="mechanism" type="text"></label>
+              <label><span id="admin-label-edit-status">Status</span><input name="status" type="text"></label>
+              <label><span id="admin-label-edit-image">Image URL</span><input name="image" type="url"></label>
+            </div>
+            <label><span id="admin-label-edit-variants">Variants (one per line: label | price)</span><textarea
+                name="variants" rows="3" placeholder="5 g | 19.9&#10;10 g | 34.9"></textarea></label>
+            <label><span id="admin-label-edit-short-az">Short Description AZ</span><textarea name="shortDescriptionAz"
+                rows="2" required></textarea></label>
+            <label><span id="admin-label-edit-short-ru">Short Description RU</span><textarea name="shortDescriptionRu"
+                rows="2"></textarea></label>
+            <label><span id="admin-label-edit-short-en">Short Description EN</span><textarea name="shortDescriptionEn"
+                rows="2"></textarea></label>
+            <label><span id="admin-label-edit-full-az">Full Description AZ</span><textarea name="descriptionAz" rows="3"
+                required></textarea></label>
+            <label><span id="admin-label-edit-full-ru">Full Description RU</span><textarea name="descriptionRu"
+                rows="3"></textarea></label>
+            <label><span id="admin-label-edit-full-en">Full Description EN</span><textarea name="descriptionEn"
+                rows="3"></textarea></label>
+            <label><span id="admin-label-edit-features-az">Features AZ (one line per item)</span><textarea
+                name="featuresAz" rows="3"></textarea></label>
+            <label><span id="admin-label-edit-features-ru">Features RU (one line per item)</span><textarea
+                name="featuresRu" rows="3"></textarea></label>
+            <label><span id="admin-label-edit-features-en">Features EN (one line per item)</span><textarea
+                name="featuresEn" rows="3"></textarea></label>
+            <label><span id="admin-label-edit-images">Photo URLs (one URL per line)</span><textarea name="images"
+                rows="3" required></textarea></label>
+            <label><span id="admin-label-edit-videos">Video URLs (one URL per line)</span><textarea name="videos"
+                rows="3"></textarea></label>
+            <label><span id="admin-label-edit-instagram">Instagram post URL</span><input name="instagramUrl"
+                type="url"></label>
+            <div class="admin-actions">
+              <button id="admin-edit-save-btn" class="btn btn-primary" type="submit">Save changes</button>
+              <button class="btn btn-ghost" id="admin-edit-cancel" type="button">Cancel</button>
+            </div>
+          </form>
+          <div id="admin-product-comments-wrap"
+            style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line); display: none;">
+            <h3 id="admin-product-comments-title" style="margin-bottom: 16px;">Product Comments</h3>
+            <div id="admin-product-comments-list" style="display: flex; flex-direction: column; gap: 8px;"></div>
+          </div>
+        </section>
+
+        <section data-products-panel="filters" hidden>
+          <h2 id="admin-filters-title" style="margin-top:16px;">Catalog filters</h2>
+          <div class="admin-grid">
+            <form id="admin-filter-categories-form" class="admin-form">
+              <label><span id="admin-filter-categories-label">Category</span><input name="value" type="text"
+                  placeholder="original"></label>
+              <button id="admin-filter-categories-btn" class="btn btn-primary" type="submit">Add category</button>
+              <div id="admin-filter-categories-list" class="chips"></div>
+            </form>
+            <form id="admin-filter-mechanisms-form" class="admin-form">
+              <label><span id="admin-filter-mechanisms-label">Mechanism</span><input name="value" type="text"
+                  placeholder="Quartz"></label>
+              <button id="admin-filter-mechanisms-btn" class="btn btn-primary" type="submit">Add mechanism</button>
+              <div id="admin-filter-mechanisms-list" class="chips"></div>
+            </form>
+            <form id="admin-filter-brands-form" class="admin-form">
+              <label><span id="admin-filter-brands-label">Brand</span><input name="value" type="text"
+                  placeholder="Naviforce"></label>
+              <button id="admin-filter-brands-btn" class="btn btn-primary" type="submit">Add brand</button>
+              <div id="admin-filter-brands-list" class="chips"></div>
+            </form>
+          </div>
+        </section>
+
+        <section data-products-panel="list" hidden>
+          <h2 id="admin-products-list-title">Products</h2>
+          <form id="admin-products-filters" class="admin-form">
+            <div class="admin-grid">
+              <label><span id="admin-products-search-label">Search</span><input id="admin-products-search" type="search"
+                  placeholder="Any field"></label>
+              <label><span id="admin-products-filter-sku-label">SKU</span><input id="admin-products-filter-sku"
+                  type="text" placeholder="SKU"></label>
+              <label><span id="admin-products-filter-name-label">Name</span><input id="admin-products-filter-name"
+                  type="text" placeholder="Name"></label>
+              <label><span id="admin-products-filter-brand-label">Brand</span><input id="admin-products-filter-brand"
+                  type="text" placeholder="Brand"></label>
+              <label><span id="admin-products-filter-category-label">Category</span>
+                <select id="admin-products-filter-category">
+                  <option value="">All</option>
+                  <option value="original">original</option>
+                  <option value="design">design</option>
+                </select>
+              </label>
+            </div>
+          </form>
+          <div id="admin-products" class="admin-table-wrap"></div>
+        </section>
+
+        <section data-products-panel="filters" hidden>
+          <h2>Category & Brand Management</h2>
+          <div class="admin-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 24px;">
+            <div class="admin-widget">
+              <h3>Categories</h3>
+              <form id="admin-filter-categories-form" class="admin-form"><input type="text" name="value"
+                  placeholder="Add category..."></form>
+              <div id="admin-filter-categories-list" class="admin-widget-list" style="margin-top: 12px;"></div>
+            </div>
+            <div class="admin-widget">
+              <h3>Mechanisms</h3>
+              <form id="admin-filter-mechanisms-form" class="admin-form"><input type="text" name="value"
+                  placeholder="Add mechanism..."></form>
+              <div id="admin-filter-mechanisms-list" class="admin-widget-list" style="margin-top: 12px;"></div>
+            </div>
+            <div class="admin-widget">
+              <h3>Brands</h3>
+              <form id="admin-filter-brands-form" class="admin-form"><input type="text" name="value"
+                  placeholder="Add brand..."></form>
+              <div id="admin-filter-brands-list" class="admin-widget-list" style="margin-top: 12px;"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="admin-tab-orders" data-admin-panel="orders" hidden>
+        <h2 id="admin-orders-title">Orders</h2>
+        <form id="admin-orders-filters" class="admin-form">
+          <div class="admin-grid">
+            <label><span id="admin-orders-search-label">Search</span><input id="admin-orders-search" type="search"
+                placeholder="Any field"></label>
+            <label><span id="admin-orders-filter-id-label">Order ID</span><input id="admin-orders-filter-id" type="text"
+                placeholder="order id"></label>
+            <label><span id="admin-orders-filter-user-label">User</span><input id="admin-orders-filter-user" type="text"
+                placeholder="name, email, phone"></label>
+            <label><span id="admin-orders-filter-status-label">Status</span>
+              <select id="admin-orders-filter-status" class="order-status-select">
+                <option value="">All</option>
+                <option value="pending">pending</option>
+                <option value="processing">processing</option>
+                <option value="shipped">shipped</option>
+                <option value="delivered">delivered</option>
+                <option value="cancelled">cancelled</option>
+              </select>
+            </label>
+            <label><span id="admin-orders-filter-date-from-label">Date from</span><input
+                id="admin-orders-filter-date-from" type="date"></label>
+            <label><span id="admin-orders-filter-date-to-label">Date to</span><input id="admin-orders-filter-date-to"
+                type="date"></label>
+          </div>
+          <button type="button" class="btn btn-ghost" id="admin-export-orders-csv" style="margin-top: 12px;">Export
+            Orders CSV</button>
+        </form>
+        <div class="bulk-actions"
+          style="margin-top: 16px; padding: 16px; background: #fff; border: 1px solid var(--line); border-radius: 12px; display: flex; align-items: center; gap: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem;">
+            <input type="checkbox" id="admin-orders-select-all"> Select All
+          </label>
+          <div style="flex: 1;"></div>
+          <select id="admin-orders-bulk-status" class="order-status-select" style="width: auto;">
+            <option value="">-- Change Status --</option>
+            <option value="pending">pending</option>
+            <option value="processing">processing</option>
+            <option value="shipped">shipped</option>
+            <option value="delivered">delivered</option>
+            <option value="cancelled">cancelled</option>
+          </select>
+          <button type="button" class="btn btn-primary btn-sm" id="admin-orders-bulk-apply">Apply to Selected</button>
+        </div>
+        <div id="admin-orders" class="admin-table-wrap"></div>
+      </div>
+
+      <div id="admin-tab-messages" data-admin-panel="messages" hidden>
+        <h2 id="admin-messages-title">Messages</h2>
+        <form id="admin-messages-filters" class="admin-form">
+          <label><span id="admin-messages-search-label">Search chats</span><input id="admin-messages-search"
+              type="search" placeholder="Contact or message text"></label>
+        </form>
+        <div class="admin-messages-layout">
+          <aside id="admin-contacts" class="admin-contacts"></aside>
+          <div>
+            <div id="admin-chat" class="admin-chat-list"></div>
+            <form id="admin-send-form" class="admin-form admin-send-form">
+              <textarea name="text" rows="3" placeholder="Type a message"></textarea>
+              <button id="admin-send-btn" class="btn btn-primary" type="submit">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div id="admin-tab-dashboard" data-admin-panel="dashboard">
+        <div class="admin-grid">
+          <div class="admin-widget">
+            <span class="admin-widget-title" id="admin-widget-title-total-products">Total products</span>
+            <span class="admin-widget-value" id="admin-widget-value-total-products">0</span>
+          </div>
+          <div class="admin-widget">
+            <span class="admin-widget-title" id="admin-widget-title-total-orders">Total orders</span>
+            <span class="admin-widget-value" id="admin-widget-value-total-orders">0</span>
+          </div>
+          <div class="admin-widget">
+            <span class="admin-widget-title" id="admin-widget-title-total-revenue">Total revenue</span>
+            <span class="admin-widget-value" id="admin-widget-value-total-revenue">0</span>
+          </div>
+          <div class="admin-widget">
+            <span class="admin-widget-title" id="admin-widget-title-total-users">Total users</span>
+            <span class="admin-widget-value" id="admin-widget-value-total-users">0</span>
+          </div>
+        </div>
+        <div class="admin-grid" style="margin-top: 24px;">
+          <div class="admin-widget">
+            <span class="admin-widget-title" id="admin-widget-title-top-products">Top products</span>
+            <div id="admin-widget-top-products-list" class="admin-widget-list"></div>
+          </div>
+          <div class="admin-widget">
+            <span class="admin-widget-title" id="admin-widget-title-recent-orders">Recent orders</span>
+            <div id="admin-widget-recent-orders-list" class="admin-widget-list"></div>
+          </div>
+        </div>
+
+        <div class="admin-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 24px;">
+          <div class="admin-chart-wrap">
+            <div class="admin-chart-header">
+              <span class="admin-chart-title" id="admin-chart-title-revenue">Revenue Over Time</span>
+            </div>
+            <div class="admin-chart-canvas-container">
+              <canvas id="admin-chart-revenue"></canvas>
+            </div>
+          </div>
+
+          <div class="admin-chart-wrap">
+            <div class="admin-chart-header">
+              <span class="admin-chart-title" id="admin-chart-title-users">New Users Registration</span>
+            </div>
+            <div class="admin-chart-canvas-container">
+              <canvas id="admin-chart-users"></canvas>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="admin-tab-logs" data-admin-panel="logs" hidden>
+        <h2 id="admin-logs-title">Recent actions</h2>
+        <form id="admin-logs-filters" class="admin-form">
+          <div class="admin-grid">
+            <label><span id="admin-logs-search-label">Search</span><input id="admin-logs-search" type="search"
+                placeholder="Any field"></label>
+            <label><span id="admin-logs-filter-type-label">Action type</span><input id="admin-logs-filter-type"
+                type="text" placeholder="order_created"></label>
+            <label><span id="admin-logs-filter-actor-label">Actor</span><input id="admin-logs-filter-actor" type="text"
+                placeholder="name or email"></label>
+            <label><span id="admin-logs-filter-target-label">Target</span><input id="admin-logs-filter-target"
+                type="text" placeholder="name or email"></label>
+            <label><span id="admin-logs-filter-date-from-label">Date from</span><input id="admin-logs-filter-date-from"
+                type="date"></label>
+            <label><span id="admin-logs-filter-date-to-label">Date to</span><input id="admin-logs-filter-date-to"
+                type="date"></label>
+          </div>
+        </form>
+        <div id="admin-logs" class="admin-table-wrap"></div>
+      </div>
+
+      <div id="admin-tab-comments" data-admin-panel="comments" hidden>
+        <h2>Comments Moderation</h2>
+        <p>Manage customer reviews and feedback.</p>
+        <div class="admin-table-wrap" style="margin-top: 24px;">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>User / Date</th>
+                <th>Product</th>
+                <th>Text</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-comments-list"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="admin-tab-newsletter" data-admin-panel="newsletter" hidden>
+        <h2>Newsletter Subscribers</h2>
+        <div style="margin-bottom: 24px; display: flex; gap: 12px;">
+          <button type="button" class="btn btn-ghost" id="admin-export-newsletter-csv">Export CSV</button>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Subscribed Date</th>
+              </tr>
+            </thead>
+            <tbody id="admin-newsletter-list"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="admin-message" class="admin-message" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../assets/js/core/nav.js"></script>
+  <script src="../assets/js/core/products-store.js"></script>
+  <script src="../assets/js/core/auth.js"></script>
+  <script src="../assets/js/core/auth-ui.js"></script>
+  <script src="../assets/js/pages/admin.js"></script>
+</body>
+
+</html>
